@@ -1,9 +1,9 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-<title>Todo list</title>
+<title>Depense</title>
 {% endblock %}
-ConvertTo-Xml
+
 {% block content %}
 <div class="container">
 
@@ -12,7 +12,7 @@ ConvertTo-Xml
     <div class="offset-md-2 col-lg-9">
       <div class="page-header">
         <h1>
-          Todo List
+          depense
         </h1>
       </div>
     </div>
@@ -21,12 +21,14 @@ ConvertTo-Xml
   <!-- Add a todo row -->
   <div class="row">
     <div class="offset-md-2 col-lg-9">
-      <form method="post" action="{% url 'c' %}">
+      <form method="post" action="{% url 'dep_c' %}">
         {% csrf_token %}
         <div class="form-row">
           <div class="col-md-6">
-            <input type="text" class="form-control" name="title" placeholder="Do laundry" required>
-          </div>
+            <input type="text" class="form-control" name="title" placeholder="depense" required>
+            <input type="text" class="form-control" name="montant" placeholder="montant" required>
+
+        </div>
           <div class="col-md-6">
             <button type="submit" name="submit" class="btn btn-outline-primary">
               Add
@@ -38,22 +40,24 @@ ConvertTo-Xml
   </div>
   <hr />
     <button class="btn btn-primary offset-md-2 col-lg-6" >
-            {{tt}}/{{num}} <span class="badge bg-primary">todos</span>
+            {{tt}}/{{num}} <span class="badge bg-primary">depenses</span>
     </button>
   <!-- todo list row -->
   <div class="row">
     <div class="offset-md-2 col-lg-6">
       <div class="list-group">
-        {% for todo in todo_list %}
-        <div class="list-group-item {% if todo.isCompleted %} todo-complete {% endif %}">
-          <form style="display: inline;" method="post" action="{% url 'u' todo.id %}">
+        {% for todo in depense_list %}
+        <div class="list-group-item {% if todo %} todo-complete {% endif %}">
+          <form style="display: inline;" method="post" action="{% url 'dep_up' todo.id %}">
             {% csrf_token %}
-            <input type="checkbox" name="isCompleted" onchange="this.form.submit()" {% if todo.isCompleted %} checked
-              {% endif %} class="todo-status-checkbox"
-              title="{% if not todo.isCompleted %} mark as done {% else %} mark undone {% endif %}">
-          </form>
-          {{ todo.title }}
-          <form style="display: inline;" method="post" action="{% url 'd' todo.id %}">
+            <input type="text" name="title"  class="todo-status-checkbox"
+            title="{{todo.title}} " value="{{todo.title}}" >
+            <input type="text" name="montant" class="todo-status-checkbox"
+            title="{{todo.montant}} " value="{{todo.montant}}" >
+            <button type="submit">update</button>
+        </form>
+          {{ todo.title }} {{todo.montant}}
+          <form style="display: inline;" method="post" action="{% url 'dep_del' todo.id %}">
             {% csrf_token %}
             <input type="submit" value="dell">
           </form>

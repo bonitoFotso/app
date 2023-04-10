@@ -19,7 +19,7 @@ from .models import *
 #    def get_queryset(self):
 #        """Return all the latest todos."""
 #        return  Todo.objects.order_by('-created_at')
-#    
+#   
 class TodoCreateView(CreateView):
     model = Todo
     fields = ['title']
@@ -27,7 +27,9 @@ class TodoCreateView(CreateView):
     success_url =reverse_lazy('c')
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["todo_list"] = Todo.objects.order_by('-created_at')
+        context["todo_list"] = Todo.objects.order_by('-created_at') 
+        context["tt"] = Todo.objects.filter(isCompleted = 'True').values().count
+        context['num'] = Todo.objects.count()
         return context
     
 class TodoDeleteView(DeleteView):
@@ -40,6 +42,6 @@ class TodoUpdateView(UpdateView):
     model = Todo
     fields = ['isCompleted']
     template_name_suffix = 'todo/todo.html'
-    success_url =reverse_lazy('t')
+    success_url =reverse_lazy('c')
     
     

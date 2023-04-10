@@ -18,16 +18,15 @@
 <body>
   <header>
     <!-- place navbar here -->
-    {% include 'base/sidenav.html' %}
+    
     <div class="main-content" id="panel">
 
-      {% include "base/navigation.html" %}
+    
   {% block content %}{% endblock content %}
     </div>
   </header>
   <footer>
     <!-- place footer here -->
-    {% include 'base/footer.html' %}
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   {% include 'base/scripts.html' %}

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo'
+    'todo',
+    'finance'
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'To_do_list.wsgi.application'
 
+LOGIN_REDIRECT_URL = 'c'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
