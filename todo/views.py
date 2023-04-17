@@ -30,18 +30,19 @@ class TodoCreateView(CreateView):
         context["todo_list"] = Todo.objects.order_by('-created_at') 
         context["tt"] = Todo.objects.filter(isCompleted = 'True').values().count
         context['num'] = Todo.objects.count()
+        context['page'] = 'todo'
         return context
     
 class TodoDeleteView(DeleteView):
     model = Todo
     fields = ['title']
     template_name = 'todo/todo.html'
-    success_url =reverse_lazy('c')
+    success_url =reverse_lazy('todo')
     
 class TodoUpdateView(UpdateView):
     model = Todo
     fields = ['isCompleted']
     template_name_suffix = 'todo/todo.html'
-    success_url =reverse_lazy('c')
+    success_url =reverse_lazy('todo')
     
     

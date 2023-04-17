@@ -13,13 +13,13 @@
         <!-- Nav items -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {% if 'index' in segment %} active {% endif %}" href="/">
+            <a class="nav-link {% if 'home' in page %} active {% endif %}" href="/">
               <i class="ni ni-tv-2 text-primary"></i>
               <span class="nav-link-text">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if 'icons' in segment %} active {% endif %}" href="/icons.html">
+            <a class="nav-link {% if 'todo' in page %} active {% endif %}" href="{% url 'todo' %}">
               <i class="ni ni-planet text-orange"></i>
               <span class="nav-link-text">Icons</span>
             </a>
@@ -27,6 +27,7 @@
           <li class="nav-item">
             <a class="nav-link {% if 'map' in segment %} active {% endif %}" href="/map.html">
               <i class="ni ni-pin-3 text-primary"></i>
+              <i class="ni ni-diamond text-bl\" ></i>
               <span class="nav-link-text">Google</span>
             </a>
           </li>
@@ -42,21 +43,24 @@
               <span class="nav-link-text">Tables</span>
             </a>
           </li>
+          {% if request.user.username == 'none' %}
           <li class="nav-item">
-            <a class="nav-link" href="/login.html">
+            <a class="nav-link" href="{% url 'login' %}">
               <i class="ni ni-key-25 text-info"></i>
               <span class="nav-link-text">Login</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/register.html">
-              <i class="ni ni-circle-08 text-pink"></i>
+            <a class="nav-link" href="{% url 'register' %}">
+              <i class="ni ni-circle-08 text-pink">hh</i>
               <span class="nav-link-text">Register</span>
             </a>
           </li>
-
+    
+          {% endif %}
+          
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'c' %}">
+            <a class="nav-link" href="{% url 'dep_c' %}">
               <i class="ni ni-user-run text-red"></i>
               <span class="nav-link-text">Logout</span>
             </a>

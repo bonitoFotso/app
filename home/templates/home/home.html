@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+home
+{% endblock %}
+
+{% block content  %}
+<div class="container">
+    <div class="row"></div>
+    <div class="row"> <!-- exemple - ligne 1 -->
+  
+    {% for t in t_all %}
+                <div class="col-md-3 list-group-item">
+                    <div class="row">
+                    <div class="col-md-6">
+                        {{t.title}}
+                    </div>
+                    <div class="col-md-6">
+                        {{t.created_at}}
+                    </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+    </div>
+    <hr>
+</div>
+        <div class="container">
+            <div class="row"></div>
+            <div class="row"> <!-- exemple - ligne 1 -->
+    
+            {% for t in depense_list %}
+                        <div class="col-md-3 list-group-item">
+                            <div class="row">
+                            <div class="col-md-6">
+                                {{t.title}}
+                            </div>
+                            <div class="col-md-6">
+                                {{t.montant}}
+                            </div>
+                            </div>
+                        </div>
+                        
+                    {% endfor %}
+            </div>
+            
+                </div>
+
+
+{% endblock  %}

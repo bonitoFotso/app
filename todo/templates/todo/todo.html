@@ -21,7 +21,7 @@ ConvertTo-Xml
   <!-- Add a todo row -->
   <div class="row">
     <div class="offset-md-2 col-lg-9">
-      <form method="post" action="{% url 'c' %}">
+      <form method="post" action="{% url 'todo' %}">
         {% csrf_token %}
         <div class="form-row">
           <div class="col-md-6">
@@ -46,14 +46,14 @@ ConvertTo-Xml
       <div class="list-group">
         {% for todo in todo_list %}
         <div class="list-group-item {% if todo.isCompleted %} todo-complete {% endif %}">
-          <form style="display: inline;" method="post" action="{% url 'u' todo.id %}">
+          <form style="display: inline;" method="post" action="{% url 'todo_up' todo.id %}">
             {% csrf_token %}
             <input type="checkbox" name="isCompleted" onchange="this.form.submit()" {% if todo.isCompleted %} checked
               {% endif %} class="todo-status-checkbox"
               title="{% if not todo.isCompleted %} mark as done {% else %} mark undone {% endif %}">
           </form>
           {{ todo.title }}
-          <form style="display: inline;" method="post" action="{% url 'd' todo.id %}">
+          <form style="display: inline;" method="post" action="{% url 'todo_del' todo.id %}">
             {% csrf_token %}
             <input type="submit" value="dell">
           </form>

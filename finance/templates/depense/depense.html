@@ -40,32 +40,33 @@
   </div>
   <hr />
     <button class="btn btn-primary offset-md-2 col-lg-6" >
-            {{tt}}/{{num}} <span class="badge bg-primary">depenses</span>
+            {{tt}} <span class="badge bg-primary">depenses</span>
     </button>
-  <!-- todo list row -->
-  <div class="row">
+<!-- todo list row -->
+<div class="row">
     <div class="offset-md-2 col-lg-6">
-      <div class="list-group">
+    <div class="list-group">
         {% for todo in depense_list %}
-        <div class="list-group-item {% if todo %} todo-complete {% endif %}">
-          <form style="display: inline;" method="post" action="{% url 'dep_up' todo.id %}">
+        <div class="list-group-item ">
+            <form style="display: inline;" method="post" action="{% url 'dep_up' todo.id %}">
             {% csrf_token %}
-            <input type="text" name="title"  class="todo-status-checkbox"
+            <input type="text" name="title"  class="form-control-flush"
             title="{{todo.title}} " value="{{todo.title}}" >
-            <input type="text" name="montant" class="todo-status-checkbox"
+            <input type="text" name="montant" class="form-control-flush"
             title="{{todo.montant}} " value="{{todo.montant}}" >
-            <button type="submit">update</button>
+            <button type="submit" class="btn btn-outline-primary">update</button>
         </form>
-          {{ todo.title }} {{todo.montant}}
-          <form style="display: inline;" method="post" action="{% url 'dep_del' todo.id %}">
+        
+        <form style="display: inline;" method="post" action="{% url 'dep_del' todo.id %}">
             {% csrf_token %}
-            <input type="submit" value="dell">
-          </form>
+            <input type="submit" value="dell" class="btn btn-outline-primary">
+            
+        </form>
         </div>
         {% endfor %}
-      </div>
     </div>
-  </div>
+    </div>
+</div>
 </div>
 
 {% endblock %}

@@ -3,6 +3,10 @@ from django.db import models
 
 # Create your models here.
 
+class Title(models.Model):
+    name = models.CharField(max_length=50)
+    total = models.FloatField()
+    
 
 class Depense(models.Model):
     title = models.CharField(max_length=50)
@@ -13,3 +17,4 @@ class Depense(models.Model):
     
     def __str__(self):
         return self.title
+    
