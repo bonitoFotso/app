@@ -17,7 +17,7 @@ class DepenseCreateView(CreateView):
         context["depense_list"] = self.model.objects.order_by('-created_at') 
         context["tt"] = total(self)
         context['num'] = self.model.objects.count()
-        print(context['tt'])
+        context['page'] = 'depense'
         return context
     
 class DepenseDeleteView(DeleteView):

@@ -20,27 +20,26 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {% if 'todo' in page %} active {% endif %}" href="{% url 'todo' %}">
-              <i class="ni ni-planet text-orange"></i>
-              <span class="nav-link-text">Icons</span>
+              <i class="ni ni-check-bold text-orange"></i>
+              <span class="nav-link-text">todo</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if 'map' in segment %} active {% endif %}" href="/map.html">
-              <i class="ni ni-pin-3 text-primary"></i>
-              <i class="ni ni-diamond text-bl\" ></i>
-              <span class="nav-link-text">Google</span>
+            <a class="nav-link {% if 'depense' in page %} active {% endif %}" href="{% url 'dep_c' %}">
+              <i class="ni ni-money-coins text-primary" ></i>
+              <span class="nav-link-text">depense</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if 'profile' in segment %} active {% endif %}" href="/profile.html">
-              <i class="ni ni-single-02 text-yellow"></i>
-              <span class="nav-link-text">Profile</span>
+              <!-- class="ni ni-single-02 text-yellow"></!-->
+              <span class="nav-link-text"></span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if 'tables' in segment %} active {% endif %}" href="/tables.html">
-              <i class="ni ni-bullet-list-67 text-default"></i>
-              <span class="nav-link-text">Tables</span>
+              <!-- class="ni ni-bullet-list-67 text-default"></!-->
+              <span class="nav-link-text"></span>
             </a>
           </li>
           {% if request.user.username == 'none' %}

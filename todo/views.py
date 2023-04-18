@@ -24,7 +24,7 @@ class TodoCreateView(CreateView):
     model = Todo
     fields = ['title']
     template_name = 'todo/todo.html'
-    success_url =reverse_lazy('c')
+    success_url =reverse_lazy('todo')
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["todo_list"] = Todo.objects.order_by('-created_at') 
