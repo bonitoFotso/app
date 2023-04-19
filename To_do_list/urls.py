@@ -25,5 +25,6 @@ urlpatterns = [
     path('',include('todo.urls'),),
     path('',include('home.urls'),),
     path('',include('finance.urls'),),
+    #path('pay',include('payslip.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()

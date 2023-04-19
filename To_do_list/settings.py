@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'todo',
     'finance',
     'authentication',
+    #'payslip',
 ]
 
 MIDDLEWARE = [
@@ -73,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'To_do_list.wsgi.application'
 
-LOGIN_REDIRECT_URL = 'c'
+LOGIN_REDIRECT_URL = 'home'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
